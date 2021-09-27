@@ -11,7 +11,7 @@ def get_playlist(database_filename, which_playlist):
     # this should be a sql that returns all PlaylistIds and Names,
     # from the playlists table if the Name is equal to `which_playlist`
     #
-    stmt = "SELECT PlaylistId, Name FROM playlists WHERE Name='" + which_playlist + "'"
+    stmt = f"SELECT PlaylistId, Name FROM playlists WHERE Name='{which_playlist}'"
 
     # execute the command on the cursor
     cursor.execute(stmt)
