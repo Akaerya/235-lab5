@@ -24,7 +24,7 @@ def get_playlist(database_filename, which_playlist):
     # add code here
 
     if len(result) == 0:
-        print("ERROR: Could not find playlist '{}' in database!".format(which_playlist))
+        print(f"{which_playlist} is not in database")
         return []
 
     playlist_id = result[0][0]
