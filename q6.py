@@ -37,7 +37,7 @@ def get_playlist(database_filename, which_playlist):
     #       - especially which column that playlist_track should be joined on.
 
     # hint: the query should make use of the `playlist_id` parameter.
-    sql_stmt = f"SELECT tracks.Name, album.Title, genre.Name, artist.Name, tracks.Composer FROM tracks \
+    playlist_stmt = f"SELECT tracks.Name, album.Title, genre.Name, artist.Name, tracks.Composer FROM tracks \
                 INNER JOIN albums album ON tracks.AlbumId=album.AlbumId \
                 INNER JOIN genres genre ON tracks.GenreId=genre.GenreId \
                 INNER JOIN artists artist ON album.ArtistId=artist.ArtistId \
@@ -45,7 +45,7 @@ def get_playlist(database_filename, which_playlist):
                 WHERE tracks.TrackId = pt.TrackId ")
 
     # execute the `sql_stmt` command on the cursor
-    cursor.execute(sql_stmt)
+    cursor.execute(playlist_stmt)
 
     # Obtain result
     result = cursor.fetchall()
