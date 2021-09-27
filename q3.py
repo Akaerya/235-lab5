@@ -51,8 +51,7 @@ def get_best_of_albums(database_filename, column_name_for_ordering):
     metadata_dictionary = get_table_information_from_database(database_filename)
 
     if column_name_for_ordering not in metadata_dictionary["albums"]:
-        print("ERROR: could not find column '{}' in the list of columns for table 'albums'!".format(
-            column_name_for_ordering))
+        print(f'Column {column_name_for_ordering} is not in here, check that it is')
         return []
 
     # create new sqlite connection here using the `database_filename` input
